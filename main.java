@@ -1,22 +1,22 @@
 /*
  * ZHANG FEI and BILL THAN
  * 2/10/2017
- * WAR GAME
+ * WAR GAME	
  * 
  * main Class
  * Stores the main menu, and provides the user with GUI
  * 
  */
 
-import java.awt.GridLayout;
-import javax.swing.border.BevelBorder;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 class main
 {
-  //frame, is static can be accessed by any other class
+
+
+	//frame, is static can be accessed by any other class
   static JFrame f; 
   //fonts for use
   Font font = new Font("Segoe", Font.BOLD, 25);
@@ -60,11 +60,13 @@ class main
                               new ActionListener() {
       
       public void actionPerformed(ActionEvent e) {
-        //closes frame
-        f.dispose();
+
         //calls makeDeck class1
         MakeDeck2 deck = new MakeDeck2();
-        deck.makeDeck();
+        f.getContentPane().remove(panel);
+        f.getContentPane().invalidate();
+        f.getContentPane().validate();  
+        deck.makeGameFrame();
 
       }
     });
@@ -93,15 +95,18 @@ class main
         JButton continueButton = new JButton("Continue");
         continueButton.setFont(font2); 
         
-         JButton btnGet2 = new JButton("Instructions");
-   continueButton.addActionListener (
+         continueButton.addActionListener (
                               new ActionListener() {
       
       public void actionPerformed(ActionEvent e) {
         
-        MakeDeck2 deck = new MakeDeck2();
+        new MakeDeck2();
                 
         f.dispose();
+        panel.removeAll();
+        panel.revalidate();
+        panel.repaint(); 
+        
         new main();
       }
     });
@@ -153,7 +158,6 @@ class main
   
   public static void main(String [] args)
   {
-    //main, runs code starting at culminatingMain class
     new main(); 
     
   }

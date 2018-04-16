@@ -13,10 +13,7 @@ import java.awt.event.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.io.*;
-import java.util.Scanner; 
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.Document;
+import java.util.Scanner;
 
 public class MenuBar { 
   JMenuBar mb;
